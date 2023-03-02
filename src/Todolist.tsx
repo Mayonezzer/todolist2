@@ -3,6 +3,7 @@ import React from "react";
 type TodolistPropsType ={
     shapka: string
     taski: Array<TaskType>
+    removeTask: Function
 }
 
 type TaskType = {
@@ -23,7 +24,7 @@ export const Todolist = (props: TodolistPropsType) => {
                 {props.taski.map((t) =>{
                     return(
                         <li key={t.taskId}>
-                            <button onClick={ () => {alert(t.taskId)}}>x</button>
+                            <button onClick={ () => {props.removeTask(t.taskId)}}>x</button>
                             <input type="checkbox" checked={t.isDone}/>
                             <span>{t.taskTitle}</span>
                         </li>
