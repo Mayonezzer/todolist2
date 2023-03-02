@@ -6,7 +6,7 @@ type TodolistPropsType ={
     removeTask: Function
 }
 
-type TaskType = {
+ export type TaskType = {
     taskId: number
     taskTitle: string
     isDone: boolean
