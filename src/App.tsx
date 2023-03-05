@@ -19,11 +19,11 @@ function App() {
         {taskId: 4, taskTitle: "11notJS", isDone: false},
     ])
 
-    let tasksForTodolist = tasks2;
+    /*let tasksForTodolist = tasks2;*/
 
 
-    function removeTask (id: number) {
-        let filteredTasks = tasks2.filter(t=> t.taskId !== id)
+    function removeTask (taskId: number) {
+        let filteredTasks = tasks2.filter(t=> t.taskId !== taskId)
         setTasks2(filteredTasks)
     }
 

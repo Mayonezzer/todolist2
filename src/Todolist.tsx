@@ -3,7 +3,7 @@ import React from "react";
 type TodolistPropsType ={
     shapka: string
     taski: Array<TaskType>
-    removeTask: Function
+    removeTask: (taskId: number) => void
 }
 
  export type TaskType = {
