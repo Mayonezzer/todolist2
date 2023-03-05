@@ -2,7 +2,10 @@ import React, {useState} from 'react';
 import './App.css';
 import {TaskType, Todolist} from "./Todolist";
 
+export type FilterValuesType = 'all' | 'active' | 'completed'
+
 function App() {
+
     const shapkaTitle1: string = "Nazvanie1"
     const shapkaTitle2: string = "Nazvanie2"
 
@@ -19,7 +22,15 @@ function App() {
         {taskId: 4, taskTitle: "11notJS", isDone: false},
     ])
 
-    /*let tasksForTodolist = tasks2;*/
+    let [filter, setFilter] = useState <FilterValuesType> ('all')
+
+    let tasksForTodolist = tasks2;
+    if (filter === 'completed') {
+        tasksForTodolist = tasks2.filter (t => t.isDone === true)
+    }
+    if (filter === 'active') {
+        tasksForTodolist = tasks2.filter (t => t.isDone === false)
+    }
 
 
     function removeTask (taskId: number) {
@@ -27,20 +38,27 @@ function App() {
         setTasks2(filteredTasks)
     }
 
+    function changeFilter(value: FilterValuesType) {
+        setFilter(value);
+    }
+
     return (
         <div className="App">
            <Todolist shapka={shapkaTitle1}
                      taski={tasks1}
                      removeTask = {removeTask}
+                     changeFilter={changeFilter}
 
            />
            <Todolist
                shapka={shapkaTitle2}
-               taski={tasks2}
+               taski={tasksForTodolist}
                removeTask={removeTask}
+               changeFilter={changeFilter}
            />
         </div>
     );
 }
 
 export default App;
+
