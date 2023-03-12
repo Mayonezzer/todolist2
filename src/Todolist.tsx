@@ -5,12 +5,12 @@ import  {useState} from 'react';
 type TodolistPropsType ={
     shapka: string
     taski: Array<TaskType>
-    removeTask: (taskId: number) => void
+    removeTask: (taskId: string) => void
     /*changeFilter: (buttonName: FilterValuesType) => void*/
 }
 
  export type TaskType = {
-    taskId: number
+    taskId: string
     taskTitle: string
     isDone: boolean
 }

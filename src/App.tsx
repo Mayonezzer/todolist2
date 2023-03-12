@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { v1 } from 'uuid';
 import './App.css';
 import {TaskType, Todolist} from "./Todolist";
 
@@ -16,10 +17,10 @@ function App() {
     ]*/
 
     let [tasks2, setTasks2] = useState<Array<TaskType>>( [
-        {taskId: 1, taskTitle: "11html&css", isDone: true},
-        {taskId: 2, taskTitle: "11JS", isDone: true},
-        {taskId: 3, taskTitle: "11notJS", isDone: false},
-        {taskId: 4, taskTitle: "11notJS", isDone: false},
+        {taskId: v1(), taskTitle: "11html&css", isDone: true},
+        {taskId: v1(), taskTitle: "11JS", isDone: true},
+        {taskId: v1(), taskTitle: "11notJS", isDone: false},
+        {taskId: v1(), taskTitle: "11notJS", isDone: false},
     ])
 
     /*let [filter2, setFilter2] = useState <FilterValuesType> ('all')
@@ -38,7 +39,7 @@ function App() {
         filteredTasks2 = tasks2.filter (t => t.isDone === false)
     }*/
 
-    function removeTask (id: number) {
+    function removeTask (id: string) {
         //setTasks2(tasks2.filter(t => t.taskId !== id)) короткий синтаксис
          /*filteredTasks2 = tasks2.filter(t => t.taskId !== id) более понятный синтаксис
          setTasks2(filteredTasks2) filterstasks2 исправляем на tasks2
