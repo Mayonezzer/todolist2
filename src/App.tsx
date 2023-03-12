@@ -6,14 +6,14 @@ export type FilterValuesType = 'all' | 'active' | 'completed'
 
 function App() {
 
-    const shapkaTitle1: string = "Nazvanie1"
+    /*const shapkaTitle1: string = "Nazvanie1"*/
     const shapkaTitle2: string = "Nazvanie2"
 
-    const tasks1 = [
+   /* const tasks1 = [
         {taskId: 5, taskTitle: "html&css", isDone: true},
         {taskId: 6, taskTitle: "JS", isDone: false},
         {taskId: 7, taskTitle: "notJS", isDone: true},
-    ]
+    ]*/
 
     let [tasks2, setTasks2] = useState<Array<TaskType>>( [
         {taskId: 1, taskTitle: "11html&css", isDone: true},
@@ -22,39 +22,45 @@ function App() {
         {taskId: 4, taskTitle: "11notJS", isDone: false},
     ])
 
-    let [filter, setFilter] = useState <FilterValuesType> ('all')
+    /*let [filter2, setFilter2] = useState <FilterValuesType> ('all')
 
-    let tasksForTodolist = tasks2;
-    if (filter === 'completed') {
-        tasksForTodolist = tasks2.filter (t => t.isDone === true)
-    }
-    if (filter === 'active') {
-        tasksForTodolist = tasks2.filter (t => t.isDone === false)
+    function changeFilter(buttonName: FilterValuesType) { функция теперь здесь поэтому
+                                                            убираем пропсы в баттоне
+        setFilter2(buttonName);
     }
 
-
-    function removeTask (taskId: number) {
-        let filteredTasks = tasks2.filter(t=> t.taskId !== taskId)
-        setTasks2(filteredTasks)
+    let filteredTasks2 = tasks2; так как данные переносим в тудулист, юзаем tasks2 через пропсы
+                                            !!!!! и маппим именно фильтрованные таски в тудулисте
+    if (filter2 === 'completed') {
+        filteredTasks2 = tasks2.filter (t => t.isDone === true)
     }
+    if (filter2 === 'active') {
+        filteredTasks2 = tasks2.filter (t => t.isDone === false)
+    }*/
 
-    function changeFilter(value: FilterValuesType) {
-        setFilter(value);
+    function removeTask (id: number) {
+        //setTasks2(tasks2.filter(t => t.taskId !== id)) короткий синтаксис
+         /*filteredTasks2 = tasks2.filter(t => t.taskId !== id) более понятный синтаксис
+         setTasks2(filteredTasks2) filterstasks2 исправляем на tasks2
+         после переноса фильтров в тудулист*/
+        tasks2 = tasks2.filter(t => t.taskId !== id)
+        setTasks2(tasks2)
+
     }
 
     return (
         <div className="App">
-           <Todolist shapka={shapkaTitle1}
+          {/* <Todolist shapka={shapkaTitle1}
                      taski={tasks1}
                      removeTask = {removeTask}
                      changeFilter={changeFilter}
 
-           />
+           />*/}
            <Todolist
                shapka={shapkaTitle2}
-               taski={tasksForTodolist}
+               taski={tasks2}
                removeTask={removeTask}
-               changeFilter={changeFilter}
+              /* changeFilter={changeFilter}*/
            />
         </div>
     );
