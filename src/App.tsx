@@ -23,7 +23,7 @@ function App() {
         {taskId: v1(), taskTitle: "11notJS", isDone: false},
     ])
 
-    /*let [filter2, setFilter2] = useState <FilterValuesType> ('all')
+   /* let [filter2, setFilter2] = useState <FilterValuesType> ('all')
 
     function changeFilter(buttonName: FilterValuesType) { функция теперь здесь поэтому
                                                             убираем пропсы в баттоне
@@ -39,15 +39,14 @@ function App() {
         filteredTasks2 = tasks2.filter (t => t.isDone === false)
     }*/
 
-    function removeTask (id: string) {
+    /*function removeTask (id: string) {
         //setTasks2(tasks2.filter(t => t.taskId !== id)) короткий синтаксис
-         /*filteredTasks2 = tasks2.filter(t => t.taskId !== id) более понятный синтаксис
+         /!*filteredTasks2 = tasks2.filter(t => t.taskId !== id) более понятный синтаксис
          setTasks2(filteredTasks2) filterstasks2 исправляем на tasks2
-         после переноса фильтров в тудулист*/
+         после переноса фильтров в тудулист*!/
         tasks2 = tasks2.filter(t => t.taskId !== id)
         setTasks2(tasks2)
-
-    }
+    }*/
 
     return (
         <div className="App">
@@ -60,7 +59,8 @@ function App() {
            <Todolist
                shapka={shapkaTitle2}
                taski={tasks2}
-               removeTask={removeTask}
+               /*removeTask={removeTask}*/
+               setTasks2={setTasks2}
               /* changeFilter={changeFilter}*/
            />
         </div>
